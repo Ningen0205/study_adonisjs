@@ -24,4 +24,7 @@ Route.get('/', async () => {
   return { hello: 'world' }
 })
 
-Route.get('posts', 'PostsController.index')
+// Route.get('posts', 'PostsController.index')
+Route.group(() => {
+  Route.resource('posts', 'PostsController').apiOnly()
+}).prefix('/api')
